@@ -1,0 +1,61 @@
+{
+    "name": "image-kernels",
+    "version": "1.0.0",
+    "description": "Playing around with filters",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "author": "Jason Miller, <contact@jasonnmiller.nl>",
+    "license": "UNLICENSED",
+    "devDependencies": {
+        "@babel/core": "^7.7.7",
+        "@babel/preset-env": "^7.7.7",
+        "@types/jest": "^24.0.24",
+        "@types/node": "^13.1.0",
+        "@typescript-eslint/eslint-plugin": "^2.13.0",
+        "@typescript-eslint/parser": "^2.13.0",
+        "babel-loader": "^8.0.6",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.7.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "jest": "^24.9.0",
+        "prettier": "^1.19.1",
+        "ts-jest": "^24.2.0",
+        "ts-loader": "^6.2.1",
+        "typescript": "^3.7.4",
+        "webpack": "^4.41.4"
+    },
+    "dependencies": {},
+    "babel": {
+        "presets": [
+            "@babel/preset-env"
+        ]
+    },
+    "jest": {
+        "roots": [
+            "<rootDir>/src"
+        ],
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ]
+    },
+    "prettier": {
+        "singleQuote": false,
+        "trailingComma": "all",
+        "semi": false,
+        "printWidth": 80,
+        "tabWidth": 4,
+        "useTabs": false,
+        "bracketSpacing": true
+    }
+}
