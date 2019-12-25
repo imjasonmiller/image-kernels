@@ -1,6 +1,19 @@
 <html>
     <head>
         <title>Image processing playground</title>
+        <style type="text/css">
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+
+                margin: 0;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+        </style>
     </head>
     <body>
         <form>
@@ -12,7 +25,10 @@
             <input type="radio" id="blur-gaussian" name="blur-gaussian" />
             <label for="blur-gaussian">Gaussian blur</label>
         </form>
-        <canvas id="canvas">&lt;canvas&gt; is not supported</canvas>
+        <figure>
+            <canvas id="canvas">&lt;canvas&gt; is not supported</canvas>
+            <figcaption>Photo by Joel Filipe on Unsplash</figcaption>
+        </figure>
         <script type="application/javascript" src="js/main.js"></script>
     </body>
 </html>
