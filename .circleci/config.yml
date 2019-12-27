@@ -1,0 +1,40 @@
+version: 2.1
+
+# https://circleci.com/orbs/registry/orb/codecov/codecov
+orbs:
+  codecov: codecov/codecov@1.0.5
+
+executors:
+    node-13:
+        docker:
+            - image: circleci/node:13.5
+        working_directory: ~/repo
+
+jobs:
+    build:
+        executor: node-13
+        steps:
+            - checkout
+
+            - restore_cache:
+                keys:
+                    - v1-dependencies-{{ checksum "package.json" }}
+                    # fallback to the latest cache if no exact match is found
+                    - v1-dependencies-
+
+            - run:
+                name: Install dependencies
+                command: npm ci
+
+            - save_cache:
+                paths:
+                    - node_modules
+                key: v1-dependencies-{{ checksum "package.json" }}
+
+            - run:
+                name: Test
+                command: npm run test-ci
+
+            - codecov/upload:
+                file: coverage/*.json
+ 
