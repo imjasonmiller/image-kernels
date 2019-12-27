@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Image processing playground</title>
+        <meta charset="utf-8" />
         <style type="text/css">
             html,
             body {
@@ -13,16 +14,61 @@
             * {
                 box-sizing: border-box;
             }
+
+            form {
+                margin: 1em 0;
+                text-align: center;
+            }
+
+            legend {
+                margin: 1em 0;
+            }
+
+            figure {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-content: center;
+            }
+
+            figcaption {
+                margin: 0.5em 0;
+                text-align: center;
+                color: #ccc;
+            }
+
+            canvas {
+                display: block;
+
+                max-width: 480px;
+            }
         </style>
     </head>
     <body>
         <form>
             <legend>Select a filter</legend>
-            <input type="radio" id="default" name="default" />
+            <input
+                type="radio"
+                id="default"
+                name="filter"
+                value="default"
+                checked
+            />
             <label for="default">Default</label>
-            <input type="radio" id="blur-mean" name="blur-mean" />
+            <input
+                type="radio"
+                id="blur-mean"
+                name="filter"
+                value="blur-mean"
+            />
             <label for="blur-mean">Mean blur</label>
-            <input type="radio" id="blur-gaussian" name="blur-gaussian" />
+            <input
+                type="radio"
+                id="blur-gaussian"
+                name="filter"
+                value="blur-gaussian"
+            />
             <label for="blur-gaussian">Gaussian blur</label>
         </form>
         <figure>
