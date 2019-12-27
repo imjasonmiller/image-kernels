@@ -9,7 +9,7 @@ const config = {
     output: {
         path: path.join(__dirname, "dist", "js"),
         publicPath: "/",
-        filename: "[name]",
+        filename: "[name].js",
     },
     module: {
         rules: [
@@ -21,7 +21,12 @@ const config = {
         ],
     },
     resolve: { extensions: [".ts", ".js", ".json"] },
-    plugins: [new CopyPlugin([{ from: "index.html", to: "../" }])],
+    plugins: [
+        new CopyPlugin([
+            { from: "index.html", to: "../" },
+            { from: "img/joel-filipe-QwoNAhbmLLo-unsplash.jpg", to: "../img/" },
+        ]),
+    ],
 }
 
 export default config
