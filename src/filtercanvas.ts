@@ -10,6 +10,22 @@ export const getCanvasElement = (elem: string): HTMLCanvasElement => {
     return canvas
 }
 
+export interface CanvasContextMap {
+    "2d": CanvasRenderingContext2D
+    webgl: WebGLRenderingContext
+    webgl2: WebGL2RenderingContext
+    bitmaprenderer: ImageBitmapRenderingContext
+}
+
+export const getCanvasContext = <T extends keyof CanvasContextMap>(
+    canvas: HTMLCanvasElement,
+    contextType: T,
+): CanvasContextMap[T] => {
+    const context = canvas.getContext(contextType)
+    if (!context) throw new Error("could not return drawing context")
+    return context as CanvasContextMap[T]
+}
+
 export const loadImage = (url: string): Promise<HTMLImageElement> =>
     new Promise((resolve, reject) => {
         const img = new Image()
@@ -31,7 +47,7 @@ class FilterCanvas {
 
     constructor(elem: string, imgUrl: string) {
         this.canvas = getCanvasElement(elem)
-        this.context = this.canvas.getContext("2d") as CanvasRenderingContext2D
+        this.context = getCanvasContext(this.canvas, "2d")
 
         this.frames = new FrameCounter(30)
 
@@ -104,4 +120,3 @@ class FilterCanvas {
 }
 
 export default FilterCanvas
-

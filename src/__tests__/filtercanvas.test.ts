@@ -1,4 +1,8 @@
-import { getCanvasElement, loadImage } from "./../filtercanvas"
+import {
+    getCanvasElement,
+    getCanvasContext,
+    loadImage,
+} from "./../filtercanvas"
 
 describe("FilterCanvas", () => {
     beforeAll(() => (document.body.innerHTML = `<canvas id="canvas"></canvas>`))
@@ -9,6 +13,14 @@ describe("FilterCanvas", () => {
 
     it("should throw on an invalid selector", () => {
         expect(() => getCanvasElement("#invalid")).toThrow(TypeError)
+    })
+})
+
+describe("getCanvasContext", () => {
+    it("should return a 2d context", () => {
+        const result = getCanvasContext(document.createElement("canvas"), "2d")
+
+        expect(result).toBeInstanceOf(CanvasRenderingContext2D)
     })
 })
 
