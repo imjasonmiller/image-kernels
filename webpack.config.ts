@@ -24,7 +24,8 @@ const config = {
     plugins: [
         new CopyPlugin([
             { from: "index.html", to: "../" },
-            { from: "img/joel-filipe-QwoNAhbmLLo-unsplash.jpg", to: "../img/" },
+            { from: "img/*", to: "../" },
+            { from: "favicon.ico", to: "../" },
         ]),
     ],
 }
